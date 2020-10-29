@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="safe_pin_pad_color_primary">#1e3270</color>
+    <color name="safe_pin_pad_color_primary_dark">#000000</color>
+    <color name="safe_pin_pad_color_accent">#ff0000</color>
+    <color name="safe_pin_pad_default_button_text_color">#DFE1E2</color>
+    <color name="safe_pin_pad_default_prompt_text_color">#D0D0D0</color>
+    <color name="safe_pin_pad_default_pin_indicator_filled_color">#C4C4C4</color>
+    <color name="safe_pin_pad_default_pin_indicator_empty_color">#E0E0E0</color>
+
+
+    <color name="safe_pin_pad_red">#FFFF0000</color>
+    <color name="safe_pin_pad_yellow">#FFFFFF00</color>
+    <color name="safe_pin_pad_blue">#FF0000FF</color>
+    <color name="safe_pin_pad_aqua">#FF00FFFF</color>
+    <color name="safe_pin_pad_teal">#FF008080</color>
+    <color name="safe_pin_pad_green">#FF008000</color>
+    <color name="safe_pin_pad_purple">#FF800080</color>
+    <color name="safe_pin_pad_orange">#FFFFA500</color>
+    <color name="safe_pin_pad_fuchsia">#FFFF00FF</color>
+    <color name="safe_pin_pad_maroon">#FF800000</color>
+</resources>

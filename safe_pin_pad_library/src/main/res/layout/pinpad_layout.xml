@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              tools:background="#292929"
+              android:padding="16dp">
+
+    <!-- pinpad prompt -->
+    <TextView
+            android:id="@+id/safe_pin_pad_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/safe_pin_pad_default_prompt_padding"
+            android:paddingTop="@dimen/safe_pin_pad_default_prompt_padding_top"
+            android:paddingBottom="@dimen/safe_pin_pad_default_prompt_padding_bottom"
+            android:textSize="17sp"
+            android:gravity="center"
+            tools:text="Enter pin"/>
+
+    <!-- indicator layout -->
+    <LinearLayout
+            android:id="@+id/safe_pin_pad_indicator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/safe_pin_pad_default_indicator_height"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <!-- -->
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:stretchColumns="*"
+    >
+        <!-- row 1 -->
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <!-- button 1 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_1"/>
+
+            <!-- button 2 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_2"/>
+
+            <!-- button 3 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_3"/>
+        </TableRow>
+
+
+        <!-- row 2 -->
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <!-- button 4 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_4"/>
+
+            <!-- button 5 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_5"/>
+
+            <!-- button 6 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_6"/>
+        </TableRow>
+
+        <!-- row 3 -->
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <!-- button 7 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_7"/>
+
+            <!-- button 8 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_8"/>
+
+            <!-- button 9 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_9"/>
+        </TableRow>
+
+        <!-- row 4 -->
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <!-- back button -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_back"
+                    app:button_figure="@drawable/icon_backspace"/>
+
+            <!-- button 0 -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_0"/>
+
+            <!-- done button -->
+            <com.frm.safe_pin_pad_library.PinPadButton
+                    style="@style/Widget.PinPad"
+                    android:id="@+id/safe_pin_pad_btn_done"
+                    app:button_text_numeric="Done"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

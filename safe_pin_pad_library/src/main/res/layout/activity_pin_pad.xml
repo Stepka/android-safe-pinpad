@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".PinPadActivity">
+
+    <com.frm.safe_pin_pad_library.PinPadView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/pin_pad_view"
+            android:layout_width="match_parent"
+            app:auto_submit="true"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="#292929"
+            app:pin_indicator_spacing="25dp"
+            app:prompt_text="Enter Pin"
+            app:prompt_text_size="15sp"
+            app:button_numeric_text_size="24sp"
+            app:button_alpha_text_size="12sp"
+            app:button_icon_size="24dp"
+            app:button_figure_size="48dp"
+            app:pin_length="4"
+            app:pin_indicator_size="15sp"
+            app:pin_indicator_stroke_width="1dp"/>
+
+</LinearLayout>

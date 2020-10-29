@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="safe_pin_pad_default_prompt_padding">24dp</dimen>
+    <dimen name="safe_pin_pad_default_prompt_padding_top">16dp</dimen>
+    <dimen name="safe_pin_pad_default_prompt_padding_bottom">16dp</dimen>
+    <dimen name="safe_pin_pad_default_indicator_height">64dp</dimen>
+</resources>

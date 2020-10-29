@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="PinPadActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/safe_pin_pad_color_primary</item>
+        <item name="colorPrimaryDark">@color/safe_pin_pad_color_primary_dark</item>
+        <item name="colorAccent">@color/safe_pin_pad_color_accent</item>
+    </style>
+
+    <style name="Widget"/>
+    <style name="Widget.PinPad">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="button_text_color">@color/safe_pin_pad_default_button_text_color</item>
+        <item name="prompt_text_color">@color/safe_pin_pad_default_prompt_text_color</item>
+        <item name="pin_indicator_filled_color">
+            @color/safe_pin_pad_default_pin_indicator_filled_color
+        </item>
+        <item name="pin_indicator_empty_color">
+            @color/safe_pin_pad_default_pin_indicator_empty_color
+        </item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>
