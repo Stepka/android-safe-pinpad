@@ -32,3 +32,30 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+ext {
+    bintrayRepo = 'android-safe-pinpad'
+    bintrayName = 'safe_pin_pad_library'
+
+    publishedGroupId = 'com.frm.safe_pin_pad_library'
+    libraryName = 'Safe Pin Pad'
+    artifact = 'safe_pin_pad_library'
+
+    libraryDescription = 'Safe for prying pin pad'
+
+    siteUrl = 'https://github.com/Stepka/android-safe-pinpad'
+    gitUrl = 'https://github.com/Stepka/android-safe-pinpad.git'
+
+    libraryVersion = '0.0.2'
+
+    developerId = 'stepka'
+    developerName = 'Stepan Mamontov'
+    developerEmail = 'micromillioner@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
