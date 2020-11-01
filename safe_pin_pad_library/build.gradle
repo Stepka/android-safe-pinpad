@@ -46,9 +46,9 @@ ext {
     siteUrl = 'https://github.com/Stepka/android-safe-pinpad'
     gitUrl = 'https://github.com/Stepka/android-safe-pinpad.git'
 
-    libraryVersion = '0.0.2'
+    libraryVersion = '0.0.3'
 
-    developerId = 'stepka'
+    developerId = 'Fresh Red Minsche'
     developerName = 'Stepan Mamontov'
     developerEmail = 'micromillioner@gmail.com'
 
