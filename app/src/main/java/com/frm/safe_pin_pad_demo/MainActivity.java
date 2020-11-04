@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PinPadActivity.class);
                 intent.putExtra("type", PinPadActivity.GET_PIN_CODE);
-                intent.putExtra("pin_type", PinPadActivity.DIGITS);
-
                 startActivityForResult(intent, PinPadActivity.GET_PIN_CODE);
             }
         });
