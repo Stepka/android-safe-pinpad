@@ -97,6 +97,7 @@ public class PinPadActivity extends AppCompatActivity {
                         pinAsString = constructPin(pin);
                         if(pinAsString.equals(PinPadSettings.getPin(getApplicationContext()))) {
 
+                            PinPadSettings.setLastPinTimestamp(getApplicationContext(), System.currentTimeMillis() / 1000);
                             intent.putExtra("pin", pinAsString);
                             setResult(RESULT_OK, intent);
                             finish();
