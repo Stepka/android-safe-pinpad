@@ -27,6 +27,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enter Pin" />
+        <Button
+                android:id="@+id/clear_pin_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clear Pin" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

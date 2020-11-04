@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button setNewPinButton_;
     Button enterPinButton_;
+    Button clearPinButton_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         setNewPinButton_ = (Button)findViewById(R.id.set_new_pin_button);
         enterPinButton_ = (Button)findViewById(R.id.enter_pin_button);
+        clearPinButton_ = (Button)findViewById(R.id.clear_pin_button);
 
         setNewPinButton_.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, PinPadActivity.GET_PIN_CODE);
             }
         });
+        clearPinButton_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PinPadActivity.class);
+                intent.putExtra("type", PinPadActivity.CLEAR_PIN_CODE);
+                startActivityForResult(intent, PinPadActivity.CLEAR_PIN_CODE);
+            }
+        });
     }
 
     // This method is called when the second activity finishes
@@ -58,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.i(TAG, "Entered pin: " + pin);
             } else {
-                Log.i(TAG, "Entered pin not ok");
+                Log.i(TAG, "Pin error: " + data.getStringExtra("info"));
             }
         } else if (requestCode == PinPadActivity.SET_PIN_CODE) {
             if (resultCode == RESULT_OK) {

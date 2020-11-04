@@ -14,7 +14,10 @@ public class PinPadActivity extends AppCompatActivity {
 
     public static final int GET_PIN_CODE = 0;
     public static final int SET_PIN_CODE = 1;
+    public static final int CLEAR_PIN_CODE = 2;
     public static final int CONFIRM_PIN_CODE = 3;
+
+    public static final int RESULT_ERROR = 2;
 
     public static final String DIGITS = "DIGITS";
     public static final String WORDS = "WORDS";
@@ -39,26 +42,37 @@ public class PinPadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin_pad);
-//        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         pinPadView_ = (PinPadView) findViewById(R.id.pin_pad_view);
 
         currentPin_ = new ArrayList<>();
 
+        pinPadView_.clear();
+
         Bundle b = getIntent().getExtras();
         if(b != null) {
             type_ = b.getInt("type");
 
-            pinPadView_.clear();
-            switch (type_)
-            {
+            switch (type_) {
                 case GET_PIN_CODE:
-                    currentPinType_ = b.getString("pin_type");
-                    pinPadView_.setPlaceOrder(PinPadView.RANDOM_ORDER);
+                    if(PinPadSettings.isPinExist(getApplicationContext())) {
+                        pinPadView_.setPromptText("Enter pin code");
+                        currentPinType_ = PinPadSettings.getPinType(getApplicationContext());
+                        pinPadView_.setPlaceOrder(PinPadView.RANDOM_ORDER);
+                    }
+                    else {
+                        Intent intent = new Intent(PinPadActivity.this, PinPadActivity.this.getCallingActivity().getClass());
+                        intent.putExtra("info", "Pin not set yet");
+                        setResult(RESULT_ERROR, intent);
+                        finish();
+                    }
                     break;
 
+                case CLEAR_PIN_CODE:
+                    PinPadSettings.setPin(getApplicationContext(), "");
+                    PinPadSettings.setPinType(getApplicationContext(), "");
+                    PinPadSettings.setLastPinTimestamp(getApplicationContext(), 0);
+                    type_ = SET_PIN_CODE;
                 case SET_PIN_CODE:
                     pinPadView_.setPromptText("Set pin code");
                     pinPadView_.setPlaceOrder(PinPadView.BASIC_ORDER);
@@ -81,9 +95,17 @@ public class PinPadActivity extends AppCompatActivity {
                 {
                     case GET_PIN_CODE:
                         pinAsString = constructPin(pin);
-                        intent.putExtra("pin", pinAsString);
-                        setResult(RESULT_OK, intent);
-                        finish();
+                        if(pinAsString.equals(PinPadSettings.getPin(getApplicationContext()))) {
+
+                            intent.putExtra("pin", pinAsString);
+                            setResult(RESULT_OK, intent);
+                            finish();
+                        } else {
+                            pinPadView_.vibratePhone();
+                            type_ = GET_PIN_CODE;
+                            pinPadView_.clear();
+                            pinPadView_.setPromptText("Enter pin code");
+                        }
                         break;
 
                     case SET_PIN_CODE:
@@ -117,6 +139,10 @@ public class PinPadActivity extends AppCompatActivity {
                             pinAsString = constructPin(pin);
                             intent.putExtra("pin", pinAsString);
                             intent.putExtra("pin_type", currentPinType_);
+
+                            PinPadSettings.setPin(getApplicationContext(), pinAsString);
+                            PinPadSettings.setPinType(getApplicationContext(), currentPinType_);
+                            PinPadSettings.setLastPinTimestamp(getApplicationContext(), System.currentTimeMillis() / 1000);
 
                             setResult(RESULT_OK, intent);
                             finish();
