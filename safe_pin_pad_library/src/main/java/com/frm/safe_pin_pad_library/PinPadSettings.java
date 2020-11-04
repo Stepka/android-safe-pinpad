@@ -32,17 +32,17 @@ public class PinPadSettings {
         prefs.edit().putString(PREF_PIN_TYPE, type).apply();
     }
 
-    static String getPinType(Context context) {
+    public static String getPinType(Context context) {
         final SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         return prefs.getString(PREF_PIN_TYPE, "");
     }
 
-    static void setPinlessTime(Context context, int seconds) {
+    public static void setPinlessTime(Context context, int seconds) {
         final SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         prefs.edit().putInt(PREF_PINLESS_TIME, seconds).apply();
     }
 
-    static int getPinlessTime(Context context) {
+    public static int getPinlessTime(Context context) {
         final SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         return prefs.getInt(PREF_PINLESS_TIME, 0);
     }
@@ -52,12 +52,19 @@ public class PinPadSettings {
         prefs.edit().putLong(PREF_LAST_PIN_TIMESTAMP, seconds).apply();
     }
 
-    static long getLastPinTimestamp(Context context) {
+    public static long getLastPinTimestamp(Context context) {
         final SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         return prefs.getLong(PREF_LAST_PIN_TIMESTAMP, 0);
     }
 
-    static boolean isPinExist(Context context) {
+    public static boolean isPinExist(Context context) {
         return !"".equals(getPin(context));
+    }
+
+    public static boolean isPinFresh(Context context) {
+        if(System.currentTimeMillis() / 1000 - getLastPinTimestamp(context) > getPinlessTime(context)) {
+            return false;
+        }
+        return true;
     }
 }
