@@ -44,7 +44,7 @@ public class PinPadSettings {
 
     public static int getPinlessTime(Context context) {
         final SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        return prefs.getInt(PREF_PINLESS_TIME, 0);
+        return prefs.getInt(PREF_PINLESS_TIME, -1);
     }
 
     static void setLastPinTimestamp(Context context, long seconds) {

@@ -1,14 +1,17 @@
 package com.frm.safe_pin_pad_library;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PinPadActivity extends AppCompatActivity {
+public class PinPadActivity extends Activity {
 
     private static final String TAG = "PinPad";
 
@@ -41,6 +44,10 @@ public class PinPadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_pin_pad);
 
         pinPadView_ = (PinPadView) findViewById(R.id.pin_pad_view);

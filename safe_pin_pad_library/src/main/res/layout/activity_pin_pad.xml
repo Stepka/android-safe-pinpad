@@ -24,7 +24,7 @@
             app:button_alpha_text_size="12sp"
             app:button_icon_size="24dp"
             app:button_figure_size="48dp"
-            app:pin_length="4"
+            app:pin_length="3"
             app:pin_indicator_size="15sp"
             app:pin_indicator_stroke_width="1dp"/>
 
