@@ -6,6 +6,17 @@
         <item name="colorPrimary">@color/safe_pin_pad_color_primary</item>
         <item name="colorPrimaryDark">@color/safe_pin_pad_color_primary_dark</item>
         <item name="colorAccent">@color/safe_pin_pad_color_accent</item>
+        <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>
+        <item name="android:buttonStyle">@style/MontserratButtonStyle</item>
+        <item name="buttonStyle">@style/MontserratButtonStyle</item>
+    </style>
+
+    <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="MontserratButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="Widget"/>
@@ -21,6 +32,9 @@
             @color/safe_pin_pad_default_pin_indicator_empty_color
         </item>
         <item name="android:gravity">center</item>
+        <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>
+        <item name="android:buttonStyle">@style/MontserratButtonStyle</item>
+        <item name="buttonStyle">@style/MontserratButtonStyle</item>
     </style>
 
 </resources>
